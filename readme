@@ -1,6 +1,7 @@
 This project was built for SIT313 study purpose.
 -sit313 week2.pptx is the powerpoint for my presentation.
 -sit313_week2.mp4 is the video that I used to explain the app that I want to implement.
+-app_source_code contains source code of the app of this assignment.
 -app description: This app works like a memorandum, user is able to create a task and reminder for the task. However, this app is more powerful than memorandum. It support task set.
 Task set help user to organize relevant tasks together and form a portfolio. 
 This app aims at people who are busy, they will manage their time effectively and never forget their tasks with the help of this app.
