@@ -1,2 +1,0 @@
-android.app.Application
-sit313_assign1.sit313_assign1
