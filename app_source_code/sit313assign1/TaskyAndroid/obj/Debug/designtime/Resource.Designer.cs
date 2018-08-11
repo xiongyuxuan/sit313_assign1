@@ -24,10 +24,6 @@ namespace TaskyAndroid
 			global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 		}
 		
-		public static void UpdateIdValues()
-		{
-		}
-		
 		public partial class Drawable
 		{
 			
@@ -35,7 +31,10 @@ namespace TaskyAndroid
 			public const int baImg = 2130771970;
 			
 			// aapt resource value: 0x7F010003
-			public const int Icon = 2130771971;
+			public const int baImg_land = 2130771971;
+			
+			// aapt resource value: 0x7F010004
+			public const int Icon = 2130771972;
 			
 			static Drawable()
 			{

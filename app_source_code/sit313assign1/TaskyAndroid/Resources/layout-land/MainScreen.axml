@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/baimg_land">
+    <Button
+        android:id="@+id/AddButton"
+        android:text="+"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:autoSizeMinTextSize="@android:dimen/app_icon_size"
+        android:background="@android:color/transparent" />
+    <ListView
+        android:id="@+id/TaskList"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+</LinearLayout>

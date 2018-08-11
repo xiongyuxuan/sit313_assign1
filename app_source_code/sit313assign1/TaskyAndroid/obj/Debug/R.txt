@@ -1,5 +1,6 @@
 int drawable baimg 0x7f020000
-int drawable icon 0x7f020001
+int drawable baimg_land 0x7f020001
+int drawable icon 0x7f020002
 int id AddButton 0x7f060000
 int id CancelDeleteButton 0x7f060009
 int id DescriptionText 0x7f060006

@@ -29,20 +29,25 @@ namespace TaskyAndroid.Screens
 		{
 			base.OnCreate (bundle);
             
+            //load the main screen
 			SetContentView(Resource.Layout.MainScreen);
             
+            //get the taks list view and button
 			taskListView = FindViewById<ListView> (Resource.Id.TaskList);
 			addTaskButton = FindViewById<Button> (Resource.Id.AddButton);
             
+            //attach event handler to the button
 			if(addTaskButton != null) {
 				addTaskButton.Click += (sender, e) => {
 					StartActivity(typeof(MissionDetail));
 				};
 			}
 			
+            //add event handler to list view
 			if(taskListView != null) {
 				taskListView.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) => {
 					var missionDetails = new Intent (this, typeof (MissionDetail));
+  
 					missionDetails.PutExtra ("TaskID", mission[e.Position].ID);
 					StartActivity (missionDetails);
 				};
