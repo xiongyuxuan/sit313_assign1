@@ -2,6 +2,8 @@ using System;
 
 namespace Sit313assign1.Shared 
 {
+    /* mission is a model for the view: mission
+     */
 	public class Mission 
 	{
 		public Mission ()

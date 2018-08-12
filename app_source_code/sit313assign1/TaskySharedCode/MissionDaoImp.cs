@@ -8,6 +8,13 @@ using System.Data;
 
 namespace Sit313assign1.Shared
 {
+
+    /*
+     * This class is the implementation of missionDao
+     * The function of this class is to implemement the interface that described in missionDaoBridges
+     * Operations with database were implemented in this class
+     * 
+     */
 	public class MissionDaoImp 
 	{
 		static object locker = new object ();
@@ -22,9 +29,11 @@ namespace Sit313assign1.Shared
 
 			bool exists = File.Exists (dbPath);
 
+            //create a database file if it is not exsist
 			if (!exists) {
 				connection = new SqliteConnection ("Data Source=" + dbPath);
 
+                //create a table to store mission
 				connection.Open ();
 				var commands = new[] {
                     "CREATE TABLE [Items] (_id INTEGER PRIMARY KEY ASC, Name NTEXT, Description NTEXT, Deadline NTEXT, Done INTEGER);"
@@ -39,6 +48,7 @@ namespace Sit313assign1.Shared
 			}
 		}
         
+        //translate sqlite object to mission object
 		Mission FromReader (SqliteDataReader r) {
 			var t = new Mission ();
 			t.ID = Convert.ToInt32 (r ["_id"]);
@@ -49,6 +59,7 @@ namespace Sit313assign1.Shared
 			return t;
 		}
 
+        //get a list of all mission
 		public IEnumerable<Mission> GetItems ()
 		{
 			var tl = new List<Mission> ();
@@ -67,6 +78,8 @@ namespace Sit313assign1.Shared
 			return tl;
 		}
 
+
+        //get mission by id
 		public Mission GetItem (int id) 
 		{
 			var t = new Mission ();
@@ -87,10 +100,12 @@ namespace Sit313assign1.Shared
 			return t;
 		}
 
+        //save mission in database;
 		public int SaveItem (Mission item) 
 		{
 			int r;
 			lock (locker) {
+                //if it is a mission that already exsist, then just update it.
 				if (item.ID != 0) {
 					connection = new SqliteConnection ("Data Source=" + path);
 					connection.Open ();
@@ -105,7 +120,7 @@ namespace Sit313assign1.Shared
 					}
 					connection.Close ();
 					return r;
-				} else {
+				} else {// if it is a new mission, then create a new record in database
 					connection = new SqliteConnection ("Data Source=" + path);
 					connection.Open ();
 					using (var command = connection.CreateCommand ()) {
@@ -123,6 +138,8 @@ namespace Sit313assign1.Shared
 			}
 		}
 
+
+        //delete the mission by id
 		public int DeleteItem(int id) 
 		{
 			lock (locker) {

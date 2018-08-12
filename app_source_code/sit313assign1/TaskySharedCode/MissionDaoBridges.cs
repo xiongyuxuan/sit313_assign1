@@ -4,6 +4,10 @@ using System.IO;
 
 namespace Sit313assign1.Shared 
 {
+    /*
+     *  This class is the bridge of Dao and DaoImp, 
+     *  the function of this class is to creat different database path for different op paltform. 
+     */
 	public class MissionDaoBridges 
 	{
 		MissionDaoImp db = null;
@@ -17,10 +21,10 @@ namespace Sit313assign1.Shared
 
 		protected MissionDaoBridges ()
 		{
-			// set the db location
+			// set the database path 
 			dbLocation = DatabaseFilePath;
 
-			// instantiate the database	
+			// open a database connection	
 			db = new MissionDaoImp(dbLocation);
 		}
 
@@ -39,13 +43,11 @@ namespace Sit313assign1.Shared
 				#else
 
 				#if __ANDROID__
-				// Just use whatever directory SpecialFolder.Personal returns
 				string libraryPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal); ;
 				#else
-				// we need to put in /Library/ on iOS5.1 to meet Apple's iCloud terms
-				// (they don't want non-user-generated data in Documents)
+				// For path in IOS
 				string documentsPath = Environment.GetFolderPath (Environment.SpecialFolder.Personal); // Documents folder
-				string libraryPath = Path.Combine (documentsPath, "..", "Library"); // Library folder
+				string libraryPath = Path.Combine (documentsPath, "..", "Library"); 
 				#endif
 				var path = Path.Combine (libraryPath, sqliteFilename);
 				#endif
@@ -55,22 +57,27 @@ namespace Sit313assign1.Shared
 			}
 		}
 
+
+        //provide interface for DAO
 		public static Mission GetTask(int id)
 		{
 			return me.db.GetItem(id);
 		}
 
-		public static IEnumerable<Mission> GetTasks ()
+        //provide interface for DAO
+        public static IEnumerable<Mission> GetTasks ()
 		{
 			return me.db.GetItems();
 		}
 
-		public static int SaveTask (Mission item)
+        //provide interface for DAO
+        public static int SaveTask (Mission item)
 		{
 			return me.db.SaveItem(item);
 		}
 
-		public static int DeleteTask(int id)
+        //provide interface for DAO
+        public static int DeleteTask(int id)
 		{
 			return me.db.DeleteItem(id);
 		}

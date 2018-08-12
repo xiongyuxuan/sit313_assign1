@@ -60,8 +60,8 @@ namespace TaskyAndroid.Screens
 
 			mission = MissionDao.GetTasks();
 			
+            // render the listView by adapter
 			taskListAdapter = new MissionAdapter(this, mission);
-            
 			taskListView.Adapter = taskListAdapter;
 		}
 	}

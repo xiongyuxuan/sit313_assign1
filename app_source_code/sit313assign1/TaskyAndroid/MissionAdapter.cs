@@ -36,11 +36,13 @@ namespace TaskyAndroid.ApplicationLayer
 		{
 			var item = tasks[position];			
             
+            //use the built-in views: simpleListItemChecked
 			var view = (convertView ??
 				context.LayoutInflater.Inflate(
 					Android.Resource.Layout.SimpleListItemChecked,
 					parent,
 					false)) as CheckedTextView;
+            //if user input nothing, then display [new mission]
 			view.SetText (item.Name==""?"<new mission>":item.Name, TextView.BufferType.Normal);
 			view.Checked = item.Done;
             

@@ -8,6 +8,11 @@ using Android.Widget;
 
 namespace TaskyAndroid.Screens 
 {
+
+    /*
+     * This activity is for the detail of mission,
+     * users are able to create, edit, delete mission.
+     */
 	[Activity (Label = "Sit313assign1")]			
 	public class MissionDetail : Activity 
 	{
@@ -23,23 +28,27 @@ namespace TaskyAndroid.Screens
 		{
 			base.OnCreate (bundle);
 			
+            //get task id from last screen by intent
 			int taskID = Intent.GetIntExtra("TaskID", 0);
 			if(taskID > 0) {
 				mission = MissionDao.GetTask(taskID);
 			}
 			
-			SetContentView(Resource.Layout.missionDetails);
+            SetContentView(Resource.Layout.missionDetails);
 			missionName = FindViewById<EditText>(Resource.Id.NameText);
 			descriptions = FindViewById<EditText>(Resource.Id.DescriptionText);
             deadline = FindViewById<EditText>(Resource.Id.DeadlineText);
             saveButton = FindViewById<Button>(Resource.Id.SaveButton);
 
 			doneCheckbox = FindViewById<CheckBox>(Resource.Id.chkDone);
-			doneCheckbox.Checked = mission.Done;
+
+            //show detail information according to mission id
+            doneCheckbox.Checked = mission.Done;
 
 			cancelOrDeleteButton = FindViewById<Button>(Resource.Id.CancelDeleteButton);
-			
-			cancelOrDeleteButton.Text = (mission.ID == 0 ? "Cancel" : "Delete");
+
+            //if user is creating a mission, then show cancel.
+            cancelOrDeleteButton.Text = (mission.ID == 0 ? "Cancel" : "Delete");
 			
 			missionName.Text = mission.Name; 
 			descriptions.Text = mission.Description;

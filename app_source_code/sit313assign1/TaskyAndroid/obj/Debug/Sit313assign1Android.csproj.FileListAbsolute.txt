@@ -140,3 +140,14 @@ E:\school\deakin\SIT313\assignment1\app_source_code\sit313assign1\TaskyAndroid\o
 E:\school\deakin\SIT313\assignment1\app_source_code\sit313assign1\TaskyAndroid\obj\Debug\android\assets\System.ServiceModel.Internals.pdb
 E:\school\deakin\SIT313\assignment1\app_source_code\sit313assign1\TaskyAndroid\obj\Debug\android\assets\System.Transactions.pdb
 E:\school\deakin\SIT313\assignment1\app_source_code\sit313assign1\TaskyAndroid\obj\Debug\android\assets\System.Xml.pdb
+E:\school\deakin\SIT313\assignment1\app_source_code\sit313assign1\TaskyAndroid\obj\Debug\res\drawable-hdpi\baimg.jpg
+E:\school\deakin\SIT313\assignment1\app_source_code\sit313assign1\TaskyAndroid\obj\Debug\res\drawable-hdpi\baimg_land.jpg
+E:\school\deakin\SIT313\assignment1\app_source_code\sit313assign1\TaskyAndroid\obj\Debug\res\drawable-ldpi\baimg.jpg
+E:\school\deakin\SIT313\assignment1\app_source_code\sit313assign1\TaskyAndroid\obj\Debug\res\drawable-ldpi\baimg_land.jpg
+E:\school\deakin\SIT313\assignment1\app_source_code\sit313assign1\TaskyAndroid\obj\Debug\res\drawable-mdpi\baimg.jpg
+E:\school\deakin\SIT313\assignment1\app_source_code\sit313assign1\TaskyAndroid\obj\Debug\res\drawable-mdpi\baimg_land.jpg
+E:\school\deakin\SIT313\assignment1\app_source_code\sit313assign1\TaskyAndroid\obj\Debug\res\drawable-xhdpi\baimg.jpg
+E:\school\deakin\SIT313\assignment1\app_source_code\sit313assign1\TaskyAndroid\obj\Debug\res\drawable-xhdpi\baimg_land.jpg
+E:\school\deakin\SIT313\assignment1\app_source_code\sit313assign1\TaskyAndroid\obj\Debug\res\drawable\icon.jpg
+E:\school\deakin\SIT313\assignment1\app_source_code\sit313assign1\TaskyAndroid\bin\Debug\TaskyAndroid.dll
+E:\school\deakin\SIT313\assignment1\app_source_code\sit313assign1\TaskyAndroid\obj\Debug\linksrc\TaskyAndroid.dll.mdb
