@@ -39,7 +39,7 @@ namespace TaskyAndroid.Screens
             //attach event handler to the button
 			if(addTaskButton != null) {
 				addTaskButton.Click += (sender, e) => {
-					StartActivity(typeof(MissionDetail));
+					StartActivity(new Intent(this,typeof(MissionDetail)));
 				};
 			}
 			

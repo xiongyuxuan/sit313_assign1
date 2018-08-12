@@ -124,7 +124,7 @@ namespace Sit313assign1.Shared
 					connection = new SqliteConnection ("Data Source=" + path);
 					connection.Open ();
 					using (var command = connection.CreateCommand ()) {
-						command.CommandText = "INSERT INTO [Items] ([Name], [Description], [Description], [Done]) VALUES (? ,?, ?, ?)";
+						command.CommandText = "INSERT INTO [Items] ([Name], [Description], [Deadline], [Done]) VALUES (? ,?, ?, ?)";
 						command.Parameters.Add (new SqliteParameter (DbType.String) { Value = item.Name });
 						command.Parameters.Add (new SqliteParameter (DbType.String) { Value = item.Description });
                         command.Parameters.Add(new SqliteParameter(DbType.String) { Value = item.Deadline });

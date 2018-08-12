@@ -58,20 +58,24 @@ namespace TaskyAndroid.Screens
 			saveButton.Click += (sender, e) => { Save(); };
 		}
 
+        //save the information by calling DAO API
 		void Save()
 		{
+            //fill the mission model
 			mission.Name = missionName.Text;
 			mission.Description = descriptions.Text;
             mission.Deadline = deadline.Text;
 
             mission.Done = doneCheckbox.Checked;
 
+            //save info by calling DAO
 			MissionDao.SaveTask(mission);
 			Finish();
 		}
 		
 		void CancelDelete()
 		{
+            //Don't need to delete a record that has not been stored in database
 			if (mission.ID != 0) {
 				MissionDao.DeleteTask(mission.ID);
 			}
