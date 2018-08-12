@@ -13,7 +13,8 @@ namespace TaskyAndroid.Screens
 	{
 		Mission mission = new Mission();
 		Button cancelOrDeleteButton;
-		EditText descriptions;	
+		EditText descriptions;
+        EditText deadline;
 		CheckBox doneCheckbox;
         EditText missionName;
         Button saveButton;
@@ -30,7 +31,8 @@ namespace TaskyAndroid.Screens
 			SetContentView(Resource.Layout.missionDetails);
 			missionName = FindViewById<EditText>(Resource.Id.NameText);
 			descriptions = FindViewById<EditText>(Resource.Id.DescriptionText);
-			saveButton = FindViewById<Button>(Resource.Id.SaveButton);
+            deadline = FindViewById<EditText>(Resource.Id.DeadlineText);
+            saveButton = FindViewById<Button>(Resource.Id.SaveButton);
 
 			doneCheckbox = FindViewById<CheckBox>(Resource.Id.chkDone);
 			doneCheckbox.Checked = mission.Done;
@@ -41,8 +43,9 @@ namespace TaskyAndroid.Screens
 			
 			missionName.Text = mission.Name; 
 			descriptions.Text = mission.Description;
+            deadline.Text = mission.Deadline;
 
-			cancelOrDeleteButton.Click += (sender, e) => { CancelDelete(); };
+            cancelOrDeleteButton.Click += (sender, e) => { CancelDelete(); };
 			saveButton.Click += (sender, e) => { Save(); };
 		}
 
@@ -50,8 +53,9 @@ namespace TaskyAndroid.Screens
 		{
 			mission.Name = missionName.Text;
 			mission.Description = descriptions.Text;
+            mission.Deadline = deadline.Text;
 
-			mission.Done = doneCheckbox.Checked;
+            mission.Done = doneCheckbox.Checked;
 
 			MissionDao.SaveTask(mission);
 			Finish();

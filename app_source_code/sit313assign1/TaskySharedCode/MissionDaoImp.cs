@@ -27,8 +27,8 @@ namespace Sit313assign1.Shared
 
 				connection.Open ();
 				var commands = new[] {
-					"CREATE TABLE [Items] (_id INTEGER PRIMARY KEY ASC, Name NTEXT, Description NTEXT, Done INTEGER);"
-				};
+                    "CREATE TABLE [Items] (_id INTEGER PRIMARY KEY ASC, Name NTEXT, Description NTEXT, Deadline NTEXT, Done INTEGER);"
+                };
 				foreach (var command in commands) {
 					using (var c = connection.CreateCommand ()) {
 						c.CommandText = command;
@@ -44,6 +44,7 @@ namespace Sit313assign1.Shared
 			t.ID = Convert.ToInt32 (r ["_id"]);
 			t.Name = r ["Name"].ToString ();
 			t.Description = r ["Description"].ToString ();
+            t.Deadline = r["Deadline"].ToString();
 			t.Done = Convert.ToInt32 (r ["Done"]) == 1 ? true : false;
 			return t;
 		}
@@ -51,12 +52,11 @@ namespace Sit313assign1.Shared
 		public IEnumerable<Mission> GetItems ()
 		{
 			var tl = new List<Mission> ();
-
-			lock (locker) {
+            lock (locker) {
 				connection = new SqliteConnection ("Data Source=" + path);
 				connection.Open ();
 				using (var contents = connection.CreateCommand ()) {
-					contents.CommandText = "SELECT [_id], [Name], [Description], [Done] from [Items]";
+					contents.CommandText = "SELECT [_id], [Name], [Description], [Deadline], [Done] from [Items]";
 					var r = contents.ExecuteReader ();
 					while (r.Read ()) {
 						tl.Add (FromReader(r));
@@ -74,7 +74,7 @@ namespace Sit313assign1.Shared
 				connection = new SqliteConnection ("Data Source=" + path);
 				connection.Open ();
 				using (var command = connection.CreateCommand ()) {
-					command.CommandText = "SELECT [_id], [Name], [Description], [Done] from [Items] WHERE [_id] = ?";
+					command.CommandText = "SELECT [_id], [Name], [Description], [Deadline], [Done] from [Items] WHERE [_id] = ?";
 					command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = id });
 					var r = command.ExecuteReader ();
 					while (r.Read ()) {
@@ -95,10 +95,11 @@ namespace Sit313assign1.Shared
 					connection = new SqliteConnection ("Data Source=" + path);
 					connection.Open ();
 					using (var command = connection.CreateCommand ()) {
-						command.CommandText = "UPDATE [Items] SET [Name] = ?, [Description] = ?, [Done] = ? WHERE [_id] = ?;";
+						command.CommandText = "UPDATE [Items] SET [Name] = ?, [Description] = ?, [Deadline] = ?, [Done] = ? WHERE [_id] = ?;";
 						command.Parameters.Add (new SqliteParameter (DbType.String) { Value = item.Name });
 						command.Parameters.Add (new SqliteParameter (DbType.String) { Value = item.Description });
-						command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = item.Done });
+                        command.Parameters.Add(new SqliteParameter(DbType.String) { Value = item.Deadline });
+                        command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = item.Done });
 						command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = item.ID });
 						r = command.ExecuteNonQuery ();
 					}
@@ -108,10 +109,11 @@ namespace Sit313assign1.Shared
 					connection = new SqliteConnection ("Data Source=" + path);
 					connection.Open ();
 					using (var command = connection.CreateCommand ()) {
-						command.CommandText = "INSERT INTO [Items] ([Name], [Description], [Done]) VALUES (? ,?, ?)";
+						command.CommandText = "INSERT INTO [Items] ([Name], [Description], [Description], [Done]) VALUES (? ,?, ?, ?)";
 						command.Parameters.Add (new SqliteParameter (DbType.String) { Value = item.Name });
 						command.Parameters.Add (new SqliteParameter (DbType.String) { Value = item.Description });
-						command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = item.Done });
+                        command.Parameters.Add(new SqliteParameter(DbType.String) { Value = item.Deadline });
+                        command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = item.Done });
 						r = command.ExecuteNonQuery ();
 					}
 					connection.Close ();

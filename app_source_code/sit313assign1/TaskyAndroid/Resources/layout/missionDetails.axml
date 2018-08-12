@@ -29,9 +29,22 @@
         android:layout_below="@+id/NotesLabel"
         android:maxLines="1"
         android:imeOptions="actionDone" />
+    <TextView
+        android:id="@+id/NotesLabe2"
+        android:text="Deadline:"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/DescriptionText" />
+    <EditText
+        android:id="@+id/DeadlineText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/NotesLabe2"
+        android:maxLines="1"
+        android:imeOptions="actionDone" />
     <CheckBox
         android:id="@+id/chkDone"
-        android:layout_below="@+id/DescriptionText"
+        android:layout_below="@+id/DeadlineText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Done" />

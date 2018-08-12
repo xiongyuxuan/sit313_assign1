@@ -52,17 +52,20 @@ namespace TaskyAndroid
 			// aapt resource value: 0x7F020002
 			public const int AddButton = 2130837506;
 			
-			// aapt resource value: 0x7F020010
-			public const int CancelDeleteButton = 2130837520;
+			// aapt resource value: 0x7F020012
+			public const int CancelDeleteButton = 2130837522;
 			
-			// aapt resource value: 0x7F020008
-			public const int chkDone = 2130837512;
+			// aapt resource value: 0x7F020010
+			public const int chkDone = 2130837520;
+			
+			// aapt resource value: 0x7F020009
+			public const int DeadlineText = 2130837513;
 			
 			// aapt resource value: 0x7F020007
 			public const int DescriptionText = 2130837511;
 			
-			// aapt resource value: 0x7F020011
-			public const int lstItemTask = 2130837521;
+			// aapt resource value: 0x7F020013
+			public const int lstItemTask = 2130837523;
 			
 			// aapt resource value: 0x7F020004
 			public const int NameLabel = 2130837508;
@@ -70,14 +73,17 @@ namespace TaskyAndroid
 			// aapt resource value: 0x7F020005
 			public const int NameText = 2130837509;
 			
+			// aapt resource value: 0x7F020008
+			public const int NotesLabe2 = 2130837512;
+			
 			// aapt resource value: 0x7F020006
 			public const int NotesLabel = 2130837510;
 			
-			// aapt resource value: 0x7F020012
-			public const int NotesText = 2130837522;
+			// aapt resource value: 0x7F020014
+			public const int NotesText = 2130837524;
 			
-			// aapt resource value: 0x7F020009
-			public const int SaveButton = 2130837513;
+			// aapt resource value: 0x7F020011
+			public const int SaveButton = 2130837521;
 			
 			// aapt resource value: 0x7F020003
 			public const int TaskList = 2130837507;
